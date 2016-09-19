@@ -1,0 +1,31 @@
+{
+  "name": "promised-lifestream",
+  "version": "0.1.0",
+  "description": "Creating promisified stream pipeline",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tilfin/promised-lifestream.git"
+  },
+  "keywords": [
+    "Promise",
+    "stream"
+  ],
+  "author": "Toshimitsu Takahashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tilfin/promised-lifestream/issues"
+  },
+  "homepage": "https://github.com/tilfin/promised-lifestream#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.13",
+    "event-stream": "^3.3.4",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2",
+    "mocha-lcov-reporter": "^1.2.0"
+  }
+}

@@ -5,8 +5,9 @@ Creating promisified stream pipeline for Node.js
 
 ## Feature
 
+* Streams are pipelined and it resolves when last stream have finished.
 * If an error occurred at any stream, it rejects with the error.
-* If last stream is not Writable, it pushes auto-generated writer.
+* If last stream is not Writable, it pushes auto-generated writer to streams.
 
 ## Install
 
@@ -31,7 +32,7 @@ $ npm install -save promised-lifestream
 const fs = require('fs');
 const stream = require('stream');
 const es = require('event-stream');
-const PromisedLifestream = require('../lib/main');
+const PromisedLifestream = require('promised-lifestream');
 
 var i = 0;
 
