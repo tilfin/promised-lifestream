@@ -1,6 +1,10 @@
 Promised Lifestream
 ===================
 
+[![NPM Version][npm-image]][npm-url]
+[![Build Status](https://travis-ci.org/tilfin/promised-lifestream.svg?branch=master)](https://travis-ci.org/tilfin/promised-lifestream)
+[![Coverage Status](https://coveralls.io/repos/github/tilfin/promised-lifestream/badge.svg?branch=master)](https://coveralls.io/github/tilfin/promised-lifestream?branch=master)
+
 Creating promisified stream pipeline for Node.js
 
 ## Feature
@@ -8,6 +12,7 @@ Creating promisified stream pipeline for Node.js
 * Streams are pipelined and it resolves when last stream have finished.
 * If an error occurred at any stream, it rejects with the error.
 * If last stream is not Writable, it pushes auto-generated writer to streams.
+* Last stream must raise `finish` event. It doesn't support process.stdout.
 
 ## Install
 
@@ -79,3 +84,10 @@ PromisedLifestream([
   console.error(err);
 });
 ```
+
+## License
+
+  [MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/promised-lifestream.svg
+[npm-url]: https://npmjs.org/package/promised-lifestream
