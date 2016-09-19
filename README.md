@@ -4,6 +4,7 @@ Promised Lifestream
 [![NPM Version][npm-image]][npm-url]
 [![Build Status](https://travis-ci.org/tilfin/promised-lifestream.svg?branch=master)](https://travis-ci.org/tilfin/promised-lifestream)
 [![Coverage Status](https://coveralls.io/repos/github/tilfin/promised-lifestream/badge.svg?branch=master)](https://coveralls.io/github/tilfin/promised-lifestream?branch=master)
+[![dependencies Status](https://david-dm.org/tilfin/promised-lifestream/status.svg)](https://david-dm.org/tilfin/promised-lifestream)
 
 Creating promisified stream pipeline for Node.js
 
