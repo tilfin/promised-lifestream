@@ -12,8 +12,8 @@ Creating promisified stream pipeline for Node.js
 
 * Streams are pipelined and it resolves when last stream have finished.
 * If an error occurred at any stream, it rejects with the error.
-* If last stream is not Writable, it pushes auto-generated writer to streams.
-* Last stream must raise `finish` event. It doesn't support process.stdout.
+* If last stream is Readable or Transform, it appends auto-generated writer to streams.
+* Last stream must raise `finish` event. `process.stdout` doesn't raise it.
 
 ## Install
 
@@ -25,7 +25,7 @@ $ npm install -save promised-lifestream
 
 **PromisedLifestream(streams, [options])**
 
-* `streams` `<Array<Stream>>` streams composes pipeline
+* `streams` `<Array<Stream>>` streams composes pipeline. The first stream must be Readable. The second and any later stream must be Writable. The last stream can be Transform.
 * `options` `<Object>`
   * `needResult` `<Boolean>` Whether the last stream result is resolved or not. Defaults to false
 

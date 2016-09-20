@@ -1,10 +1,11 @@
 {
   "name": "promised-lifestream",
-  "version": "0.2.0",
+  "version": "0.5.0",
   "description": "Creating promisified stream pipeline",
   "main": "lib/main.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "./node_modules/.bin/istanbul cover _mocha -r test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -12,7 +13,8 @@
   },
   "keywords": [
     "Promise",
-    "stream"
+    "stream",
+    "streams"
   ],
   "author": "Toshimitsu Takahashi",
   "license": "MIT",
