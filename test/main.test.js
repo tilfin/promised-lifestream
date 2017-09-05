@@ -275,6 +275,55 @@ describe('PromisedLifestream', () => {
           });
       });
     });
+
+    context('composed of reader and stdout without needResult', () => {
+      it('resolves', (done) => {
+        let cnt = 0;
+
+        PromisedLifestream([
+          new stream.Readable({
+            read(size) {
+              if (++cnt < 3) {
+                this.push(String(cnt));
+              } else {
+                this.push(null);
+              }
+            }
+          }),
+          process.stdout
+        ])
+        .then(() => {
+          assert.isOk(true, 'This block must be called.');
+          done();
+        })
+        .catch(done);
+      });
+    });
+
+    context('composed of reader, transformer and stderr without needResult', () => {
+      it('resolves', (done) => {
+        let cnt = 0;
+
+        PromisedLifestream([
+          new stream.Readable({
+            read(size) {
+              if (++cnt < 3) {
+                this.push(String(cnt));
+              } else {
+                this.push(null);
+              }
+            }
+          }),
+          new stream.PassThrough(),
+          process.stderr
+        ])
+        .then(() => {
+          assert.isOk(true, 'This block must be called.');
+          done();
+        })
+        .catch(done);
+      });
+    });
   });
 
 });
