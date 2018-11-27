@@ -1,6 +1,6 @@
 {
   "name": "promised-lifestream",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Creating promisified stream pipeline",
   "main": "lib/main.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.13",
-    "event-stream": "^3.3.4",
+    "event-stream": "=3.3.4",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
     "mocha-lcov-reporter": "^1.2.0"
