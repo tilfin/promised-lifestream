@@ -1,7 +1,7 @@
 'use strict';
 
 const stream = require('stream');
-const es = require('event-stream');
+const StreamUtils = require('@tilfin/stream-utils');
 const chai = require('chai');
 const assert = chai.assert;
 const PromisedLifestream = require('../lib/main');
@@ -15,7 +15,7 @@ describe('PromisedLifestream', () => {
         const data = [1, 'A', 2, 'B'];
 
         return PromisedLifestream([
-            es.readArray(data)
+            StreamUtils.readArray(data)
           ], {
             needResult: true
           })
@@ -30,7 +30,7 @@ describe('PromisedLifestream', () => {
         const data = [1, 'A', 2, 'B'];
 
         return PromisedLifestream([
-            es.readArray(data)
+            StreamUtils.readArray(data)
           ], {
             needResult: false
           })
@@ -44,7 +44,7 @@ describe('PromisedLifestream', () => {
       it('resolves', () => {
         let cnt = 0;
         return PromisedLifestream([
-            es.readArray([1, 2, 3, 4]),
+            StreamUtils.readArray([1, 2, 3, 4]),
             new stream.Writable({
               objectMode: true,
               write: function (chunk, enc, cb) {
@@ -64,7 +64,7 @@ describe('PromisedLifestream', () => {
         const data = [1, 'A', 2, 'B'];
 
         return PromisedLifestream([
-            es.readArray(data),
+            StreamUtils.readArray(data),
             new stream.PassThrough({ objectMode: true })
           ])
           .then(result => {
@@ -78,7 +78,7 @@ describe('PromisedLifestream', () => {
         const data = [1, 'A', 2, 'B'];
 
         return PromisedLifestream([
-            es.readArray(data),
+            StreamUtils.readArray(data),
             new stream.PassThrough({ objectMode: true })
           ], {
             needResult: true
@@ -94,7 +94,7 @@ describe('PromisedLifestream', () => {
         const data = [1, 'A', 2, 'B'];
 
         return PromisedLifestream([
-            es.readArray(data),
+            StreamUtils.readArray(data),
             new stream.PassThrough({ objectMode: true })
           ], {
             needResult: false
@@ -109,7 +109,7 @@ describe('PromisedLifestream', () => {
       it('resolves', () => {
         let cnt = 0;
         return PromisedLifestream([
-            es.readArray([1, 2, 3]),
+            StreamUtils.readArray([1, 2, 3]),
             new stream.PassThrough({ objectMode: true }),
             new stream.Writable({
               objectMode: true,
@@ -150,8 +150,8 @@ describe('PromisedLifestream', () => {
         const ERR_MSG = 'Error occurred at Transform';
 
         return PromisedLifestream([
-            es.readArray(['A', 'B']),
-            es.map(function (data, callback) {
+            StreamUtils.readArray(['A', 'B']),
+            StreamUtils.map(function (data, callback) {
               callback(new Error(ERR_MSG));
             })
           ])
@@ -166,7 +166,7 @@ describe('PromisedLifestream', () => {
         const ERR_MSG = 'Error occurred at Writer';
 
         return PromisedLifestream([
-            es.readArray(['A', 'B']),
+            StreamUtils.readArray(['A', 'B']),
             new stream.Writable({
               objectMode: true,
               write: function (chunk, enc, cb) {
