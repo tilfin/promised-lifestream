@@ -1,6 +1,6 @@
 {
   "name": "promised-lifestream",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Creating promisified stream pipeline",
   "main": "lib/main.js",
   "scripts": {
