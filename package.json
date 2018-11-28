@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/tilfin/promised-lifestream#readme",
   "devDependencies": {
+    "@tilfin/stream-utils": "^0.5.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.13",
-    "event-stream": "=3.3.4",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
     "mocha-lcov-reporter": "^1.2.0"
