@@ -1,3 +1,9 @@
+## You should use the streams-promises-api of Node.js native API
+
+https://nodejs.org/docs/latest-v22.x/api/stream.html#streams-promises-api
+
+----
+
 Promised Lifestream
 ===================
 
